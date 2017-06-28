@@ -1,6 +1,7 @@
 <?php
 
 include './db.php';
+include './blogic.php';
 
     function dump($a)
     {
@@ -10,11 +11,10 @@ include './db.php';
     }
 
 
-
     dump('FIRST POST: ');
-    $posts = fetchQueryResults('SELECT * FROM posts WHERE id = 1;');
-    dump($posts[0]);
+    $post = fetchPostById(1);
+    dump($post);
 
     dump('USER WHO POSTED IT: ');
-    $users = fetchQueryResults('SELECT * FROM users WHERE id = ' . $posts[0]['user_id'] . ';');
-    dump($users[0]);
+    $user = fetchUserById($post['user_id']);
+    dump($user);
