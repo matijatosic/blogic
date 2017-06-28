@@ -2,7 +2,7 @@
 
 function fetchFromTableById($table, $id)
 {
-    return fetchSingleQueryResult('SELECT * FROM ' . $table . ' WHERE id = ' . $id . ';');
+    return fetchSingleQueryResult('SELECT * FROM ' . $table . ' WHERE id = :id;', [':id' => $id]);
 }
 
 
