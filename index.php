@@ -15,3 +15,6 @@ include './db.php';
     $posts = fetchQueryResults('SELECT * FROM posts WHERE id = 1;');
     dump($posts[0]);
 
+    dump('USER WHO POSTED IT: ');
+    $users = fetchQueryResults('SELECT * FROM users WHERE id = ' . $posts[0]['user_id'] . ';');
+    dump($users[0]);
