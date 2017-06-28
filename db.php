@@ -14,20 +14,24 @@ function getConnection()
 }
 
 
-function fetchAllQueryResults($query)
+function getPreparedStatement($query)
 {
     $conn = getConnection();
     $statement = $conn->prepare($query);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
+    return $statement;
+}
+
+
+function fetchAllQueryResults($query)
+{
+    $statement = getPreparedStatement($query);
     return $statement->fetchAll();
 }
 
 function fetchSingleQueryResult($query)
 {
-    $conn = getConnection();
-    $statement = $conn->prepare($query);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    $statement = getPreparedStatement($query);
     return $statement->fetch();
 }
