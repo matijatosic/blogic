@@ -5,6 +5,11 @@ function fetchFromTableById($table, $id)
     return fetchSingleQueryResult('SELECT * FROM ' . $table . ' WHERE id = :id;', [':id' => $id]);
 }
 
+function fetchRowsRelatedToRow($row, $table, $foreignKey)
+{
+    return fetchAllQueryResults("SELECT * FROM $table WHERE $foreignKey = :row_id", ['row_id' => $row['id']]);
+}
+
 
 function fetchPostById($id)
 {
@@ -24,10 +29,10 @@ function fetchUserWhoPosted($post)
 
 function fetchCommentsOnPost($post)
 {
-    return fetchAllQueryResults('SELECT * FROM comments WHERE post_id = :post_id;', [':post_id' => $post['id']]);
+    return fetchRowsRelatedToRow($post, 'comments', 'post_id');
 }
 
 function fetchPostsByUser($user)
 {
-    return fetchAllQueryResults('SELECT * FROM posts WHERE user_id = :user_id;', [':user_id' => $user['id']]);
+    return fetchRowsRelatedToRow($user, 'posts', 'user_id');
 }
