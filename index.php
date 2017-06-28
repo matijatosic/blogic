@@ -11,6 +11,7 @@ include './db.php';
 
 
 
-    dump('POSTS: ');
-    $posts = fetchQueryResults('SELECT * FROM posts;');
-    dump($posts);
+    dump('FIRST POST: ');
+    $posts = fetchQueryResults('SELECT * FROM posts WHERE id = 1;');
+    dump($posts[0]);
+
