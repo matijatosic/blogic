@@ -2,20 +2,17 @@
 
 function fetchFromTableById($table, $id)
 {
-    $rows = fetchQueryResults('SELECT * FROM ' . $table . ' WHERE id = ' . $id . ';');
-    return $rows;
+    return fetchSingleQueryResult('SELECT * FROM ' . $table . ' WHERE id = ' . $id . ';');
 }
 
 
 function fetchPostById($id)
 {
-    $posts = fetchFromTableById('posts', $id);
-    return $posts[0];
+    return fetchFromTableById('posts', $id);
 }
 
 function fetchUserById($id)
 {
-    $users = fetchFromTableById('users', $id);
-    return $users[0];
+    return fetchFromTableById('users', $id);
 }
 

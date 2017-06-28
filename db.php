@@ -14,11 +14,20 @@ function getConnection()
 }
 
 
-function fetchQueryResults($query)
+function fetchAllQueryResults($query)
 {
     $conn = getConnection();
     $statement = $conn->prepare($query);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     return $statement->fetchAll();
+}
+
+function fetchSingleQueryResult($query)
+{
+    $conn = getConnection();
+    $statement = $conn->prepare($query);
+    $statement->execute();
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    return $statement->fetch();
 }
