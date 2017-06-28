@@ -38,3 +38,20 @@ function fetchSingleQueryResult($query, $params)
     $statement = getPreparedStatement($query, $params);
     return $statement->fetch();
 }
+
+
+
+function fetchFromTableById($table, $id)
+{
+    return fetchSingleQueryResult('SELECT * FROM ' . $table . ' WHERE id = :id;', [':id' => $id]);
+}
+
+function fetchRelatedRow($row, $table, $foreignKey)
+{
+    return fetchFromTableById($table, $row[$foreignKey]);
+}
+
+function fetchRowsRelatedToRow($row, $table, $foreignKey)
+{
+    return fetchAllQueryResults("SELECT * FROM $table WHERE $foreignKey = :row_id", ['row_id' => $row['id']]);
+}
