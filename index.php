@@ -2,6 +2,7 @@
 
 include './db.php';
 include './blogic.php';
+include './DBRow.php';
 
     function dump($a)
     {
