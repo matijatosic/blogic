@@ -16,5 +16,5 @@ include './blogic.php';
     dump($post);
 
     dump('USER WHO POSTED IT: ');
-    $user = fetchUserById($post['user_id']);
+    $user = fetchUserWhoPosted($post);
     dump($user);

@@ -16,3 +16,8 @@ function fetchUserById($id)
     return fetchFromTableById('users', $id);
 }
 
+
+function fetchUserWhoPosted($post)
+{
+    return fetchUserById($post['user_id']);
+}
