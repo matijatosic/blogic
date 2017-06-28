@@ -18,3 +18,7 @@ include './blogic.php';
     dump('USER WHO POSTED IT: ');
     $user = fetchUserWhoPosted($post);
     dump($user);
+
+    dump('COMMENTS ON THE POST: ');
+    $comments = fetchCommentsOnPost($post);
+    dump($comments);
