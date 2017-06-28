@@ -27,19 +27,23 @@ function getPreparedStatement($query, $params)
 }
 
 
-function fetchAllQueryResults($query, $params)
+function fetchAllQueryResults($query, $params = [])
 {
     $statement = getPreparedStatement($query, $params);
     return $statement->fetchAll();
 }
 
-function fetchSingleQueryResult($query, $params)
+function fetchSingleQueryResult($query, $params = [])
 {
     $statement = getPreparedStatement($query, $params);
     return $statement->fetch();
 }
 
 
+function fetchAllFromTable($table)
+{
+    return fetchAllQueryResults('SELECT * FROM ' . $table . ';');
+}
 
 function fetchFromTableById($table, $id)
 {

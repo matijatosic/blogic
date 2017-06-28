@@ -11,6 +11,10 @@ include './blogic.php';
     }
 
 
+    dump('ALL POSTS: ');
+    $posts = fetchAllPosts();
+    dump($posts);
+
     dump('FIRST POST: ');
     $post = fetchPostById(1);
     dump($post);

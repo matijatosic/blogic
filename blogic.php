@@ -1,5 +1,9 @@
 <?php
 
+function fetchAllPosts()
+{
+    return fetchAllFromTable('posts');
+}
 
 function fetchPostById($id)
 {
