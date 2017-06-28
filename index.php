@@ -22,3 +22,7 @@ include './blogic.php';
     dump('COMMENTS ON THE POST: ');
     $comments = fetchCommentsOnPost($post);
     dump($comments);
+
+    dump('ALL POSTS BY THIS USER: ');
+    $allPosts = fetchPostsByUser($user);
+    dump($allPosts);

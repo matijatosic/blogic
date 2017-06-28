@@ -26,3 +26,8 @@ function fetchCommentsOnPost($post)
 {
     return fetchAllQueryResults('SELECT * FROM comments WHERE post_id = :post_id;', [':post_id' => $post['id']]);
 }
+
+function fetchPostsByUser($user)
+{
+    return fetchAllQueryResults('SELECT * FROM posts WHERE user_id = :user_id;', [':user_id' => $user['id']]);
+}
