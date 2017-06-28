@@ -11,7 +11,7 @@ class DBRow {
 
     public function getRelation($table, $foreignKey)
     {
-        return fetchRelatedRow($this->data, $table, $foreignKey);
+        return new DBRow($table, $this->data[$foreignKey]);
     }
 
     public function getInverseRelation($table, $foreignKey)

@@ -21,11 +21,11 @@ include './blogic.php';
     dump($post);
 
     dump('USER WHO POSTED IT: ');
-    $user = fetchUserWhoPosted($post->data);
+    $user = fetchUserWhoPosted($post);
     dump($user);
 
     dump('COMMENTS ON THE POST: ');
-    $comments = fetchCommentsOnPost($post->data);
+    $comments = fetchCommentsOnPost($post);
     dump($comments);
 
     dump('ALL POSTS BY THIS USER: ');

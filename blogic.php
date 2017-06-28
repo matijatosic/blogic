@@ -18,15 +18,15 @@ function fetchUserById($id)
 
 function fetchUserWhoPosted($post)
 {
-    return fetchRelatedRow($post, 'users', 'user_id');
+    return $post->getRelation('users', 'user_id');
 }
 
 function fetchCommentsOnPost($post)
 {
-    return fetchRowsRelatedToRow($post, 'comments', 'post_id');
+    return $post->getInverseRelation('comments', 'post_id');
 }
 
 function fetchPostsByUser($user)
 {
-    return fetchRowsRelatedToRow($user, 'posts', 'user_id');
+    return $user->getInverseRelation('posts', 'user_id');
 }
