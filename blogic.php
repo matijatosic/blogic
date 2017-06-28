@@ -7,12 +7,12 @@ function fetchAllPosts()
 
 function fetchPostById($id)
 {
-    return fetchFromTableById('posts', $id);
+    return new DBRow('posts', $id);
 }
 
 function fetchUserById($id)
 {
-    return fetchFromTableById('users', $id);
+    return new DBRow('users', $id);
 }
 
 

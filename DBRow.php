@@ -9,4 +9,14 @@ class DBRow {
         $this->data = fetchFromTableById($table, $id);
     }
 
+    public function getRelation($table, $foreignKey)
+    {
+        return fetchRelatedRow($this->data, $table, $foreignKey);
+    }
+
+    public function getInverseRelation($table, $foreignKey)
+    {
+        return fetchRowsRelatedToRow($this->data, $table, $foreignKey);
+    }
+
 }

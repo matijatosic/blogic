@@ -1,8 +1,8 @@
 <?php
 
 include './db.php';
-include './blogic.php';
 include './DBRow.php';
+include './blogic.php';
 
     function dump($a)
     {
@@ -21,11 +21,11 @@ include './DBRow.php';
     dump($post);
 
     dump('USER WHO POSTED IT: ');
-    $user = fetchUserWhoPosted($post);
+    $user = fetchUserWhoPosted($post->data);
     dump($user);
 
     dump('COMMENTS ON THE POST: ');
-    $comments = fetchCommentsOnPost($post);
+    $comments = fetchCommentsOnPost($post->data);
     dump($comments);
 
     dump('ALL POSTS BY THIS USER: ');
